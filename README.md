@@ -1,2 +1,2 @@
-# VueTest
-Vue3+Ts
+# VueTest + Ts
+三方库平台：https://www.npmjs.com/
