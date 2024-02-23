@@ -1,15 +1,15 @@
 <script setup lang="ts">
-// import { ref } from 'vue'
+import { ref } from 'vue'
 /// msg是接受外部数据的参数名
 defineProps(['msg']);
 /// myclick是自定义事件名词
 let myEmits = defineEmits(['myclick']);
 
 
-var count = 0;
+const count = ref(0);
 
 function buttonClick(){
-  count++;
+  count.value++;
   myEmits("myclick",count);
 }
 

@@ -32,7 +32,7 @@ function btnClick(){
 <style scoped>
 .logo {
   height: 6em;
-  padding: 1.5em;
+  padding: 0em;
   will-change: filter;
   transition: filter 300ms;
 }
