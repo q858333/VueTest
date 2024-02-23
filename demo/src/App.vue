@@ -3,6 +3,11 @@
 <template>
   <button @click="btnClick">click</button>
 
+  <Event_Bus></Event_Bus>
+  <HelloWorld msg="组建参数传递" @myclick="myclick"/>
+  <VModelTest></VModelTest>
+
+
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -11,13 +16,25 @@
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <Event_Bus></Event_Bus>
-  <HelloWorld msg="组建参数传递" @myclick="myclick"/>
+
+  <p>
+    Check out
+    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
+      >create-vue</a
+    >, the official Vue + Vite starter
+  </p>
+  <p>
+    Install
+    <a href="https://github.com/vuejs/language-tools" target="_blank">Volar</a>
+    in your IDE for a better DX
+  </p>
+  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
 <script setup lang="ts">
 import Event_Bus from './components/event_bus/Event_Bus.vue';
 import HelloWorld from './components/HelloWorld.vue';
+import VModelTest from './components/v-model/VModelTest.vue';
 
 function myclick (params: any) {
   console.log("myclick"+params);
