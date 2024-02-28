@@ -1,6 +1,6 @@
 # VueTest + Ts
 * [三方库平台](https://www.npmjs.com/)
-* [三方UI组建](element-plus.gitee.io)
+* [三方UI组建](https://element-plus.gitee.io/zh-CN/)
 
 
 ### 自定义组建名（默认是文件名）：
