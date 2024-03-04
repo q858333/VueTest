@@ -15,10 +15,11 @@ let firstName = ref('zhang')
 let lastName = ref('san')
 
 
+
 //计算属性有缓存，firstName，lastName不变方法不会掉用
 
 // 定义fullname是一个计算属性，且只读,
-// let fullName = computed(function () {
+// let fullName = computed( () => {
 //     console.log('111');
 //     return firstName.value+lastName.value;
 // } )
