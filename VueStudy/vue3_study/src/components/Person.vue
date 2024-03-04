@@ -7,6 +7,7 @@
         <button class="button1" @click="changeAge">修改年龄</button>
         <hr>
         <h2>一辆{{car.name}},价值{{car.price}}万 </h2>
+        <h2>Copys 一辆{{carCopys.name}},价值{{carCopys.price}}万 ,{{carPriceCopy}}</h2>
         <button @click="changePrice">修改价格</button>
 
         <h2>一辆{{car.name}},价值{{car.price}}万 </h2>
@@ -32,12 +33,18 @@
 ///> 2. 若需要一个响应式对象，层级不深，`ref`、`reactive`都可以。
 ///> 3. 若需要一个响应式对象，且层级较深，推荐使用`reactive`。
 
-import {ref,reactive} from 'vue' 
+import {ref,reactive,toRefs,toRef} from 'vue' 
 let name = ref('章三');
 let age = ref(18);
 let tel = '123123123123122312';
 
 let car = reactive({name:'奔驰',price:100});
+
+let carCopys = toRefs(car);
+
+let carPriceCopy = toRef(car,"price");
+
+
 let refcar = ref({name:'奔驰',price:100});
 
 let games = ref(
