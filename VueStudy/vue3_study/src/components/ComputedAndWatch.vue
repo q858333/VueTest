@@ -7,9 +7,15 @@
       <button @click="changeFullName">修改全名</button>
       <hr>
       <h1>-->Watch使用，只能监视以下四种数据</h1>
-      <h2>1.ref定义的数据</h2>
+      <h2>1.ref定义的基本类型数据</h2>
       <h3>求和：{{sum}}</h3>
       <button @click="changeSum">点我+1</button>
+
+      <h2>2.ref定义的对象类型数据</h2>
+      <h3>姓名：{{person.name}},年龄：{{person.age}}</h3>
+      <button @click="changeName">修改姓名</button>
+      <button @click="changeAge">修改年龄</button>
+      <button @click="changePerson">修改对象</button>
     </div>
     
 </template>
@@ -18,8 +24,9 @@
 
 import {ref,computed, watch} from 'vue' 
 
-//1.ref定义的数据
+//1.ref定义的基本类型数据
 let sum = ref(0)
+//监视
 let stopWatchSum = watch(sum,(newValue,oldValue)=>{
   console.log('watch ',newValue,oldValue);
   if(newValue >= 10) {
@@ -31,6 +38,27 @@ function changeSum () {
     sum.value +=1;
 }
 
+//2.ref定义的对象类型数据
+let person = ref({
+    name:'章三',
+    age:18
+})
+//监视，ref定义的对象类型数据，监视的是对象的地址值，若想监视对象内部属性变化，需要手动开启deep,
+// immediate 表示 立即执行一次
+//deep 监听，对象的属性newValue，oldValue是一样的，因为指向的是同一地址，值变后都变了
+watch(person,(newValue,oldValue)=>{
+  console.log('watch ',newValue,oldValue);
+},{deep:true,immediate:true})
+function changePerson () {
+    person.value = {name:'里斯', age:1000}
+}
+function changeName () {
+    person.value.name += '~';
+}
+
+function changeAge() {
+    person.value.age += 1;
+}
 
 
 
