@@ -36,13 +36,16 @@
       <button @click="changeCarPrice">修改价格</button>
       <button @click="changeName">修改姓名</button>
 
+      <hr>
+      <h1>-->WatchEffect监听，所有响应式数据变化都能监听到，不需要指定某个对象</h1>
+
     </div>
     
 </template>
 
 <script setup lang="ts">
 
-import {ref,computed, watch, reactive} from 'vue' 
+import {ref,computed, watch, reactive, watchEffect} from 'vue' 
 
 //1.ref定义的基本类型数据
 let sum = ref(0)
@@ -158,6 +161,18 @@ watch([()=>{
     console.log('watch 多个数据 ',newValue,oldValue);
 })
 
+
+
+
+
+
+watchEffect(()=>{
+
+if(sum.value > 10) {
+    console.log('watchEffect')
+}
+
+})
 
 
 
