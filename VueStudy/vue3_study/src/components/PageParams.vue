@@ -6,14 +6,48 @@
             <li v-for="(p,index) in list"  :key="p.id">
             <h3>{{index}},汽车：{{p.name}} ,价格:{{p.price}}</h3>
             </li>
-
         </ul>
+        <button @click="updateData"> 更新数据:{{sum}}}</button>
       
     </div>
 </template>
 
 <script setup lang="ts">
+
 import { type Cars } from '@/types';
+
+import {ref,onBeforeMount ,onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
+
+console.log('Page 创建');
+/// 生命周期
+
+onBeforeMount(()=>{
+    console.log('挂载完成前')
+});
+onMounted(()=>{
+    console.log('挂载完成')
+});
+
+onBeforeUpdate(() => {
+    console.log('更新前')
+});
+onUpdated(() => {
+    console.log('更新完毕')
+});
+
+onBeforeUnmount(()=>{
+    console.log('卸载前')
+});
+
+onUnmounted(() => {
+    console.log('卸载完毕')
+});
+
+
+let sum = ref(0);
+function updateData () {
+    sum.value+=1;
+}
 
 
 //  1:只接收

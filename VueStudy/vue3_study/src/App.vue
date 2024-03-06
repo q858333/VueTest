@@ -5,11 +5,13 @@ import Person from './components/Person.vue';
 import ComputedAndWatch from './components/ComputedAndWatch.vue';
 import PageParams from './components/PageParams.vue';
 import { type Cars } from "@/types";
-import { reactive } from 'vue';
+import { ref,reactive } from 'vue';
 
 
+let isShow = ref(true);
 
-let carList = reactive<Cars>([
+let carList = 
+reactive<Cars>([
   {id:'dasda1',name:'奔驰',price:100},
   {id:'dasda2',name:'宝马',price:40},
   {id:'dasda3',name:'大众',price:10},
@@ -19,8 +21,8 @@ console.log('carlist',carList);
 
 <template>
           <!-- <Person></Person> -->
-  <ComputedAndWatch></ComputedAndWatch>
-  <PageParams :list="carList"></PageParams>
+  <ComputedAndWatch ></ComputedAndWatch>
+  <PageParams :list="carList" v-if="isShow"></PageParams>
 
   <!-- <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
