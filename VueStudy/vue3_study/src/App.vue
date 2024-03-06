@@ -3,12 +3,24 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import Person from './components/Person.vue';
 import ComputedAndWatch from './components/ComputedAndWatch.vue';
+import PageParams from './components/PageParams.vue';
+import { type Cars } from "@/types";
+import { reactive } from 'vue';
+
+
+
+let carList = reactive<Cars>([
+  {id:'dasda1',name:'奔驰',price:100},
+  {id:'dasda2',name:'宝马',price:40},
+  {id:'dasda3',name:'大众',price:10},
+])
+console.log('carlist',carList);
 </script>
 
 <template>
+          <!-- <Person></Person> -->
   <ComputedAndWatch></ComputedAndWatch>
-  
-        <!-- <Person></Person> -->
+  <PageParams :list="carList"></PageParams>
 
   <!-- <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
