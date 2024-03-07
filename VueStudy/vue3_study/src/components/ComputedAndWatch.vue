@@ -164,8 +164,6 @@ watch([()=>{
 
 
 
-
-
 watchEffect(()=>{
 
 if(sum.value > 10) {

@@ -6,8 +6,7 @@ import ComputedAndWatch from './components/ComputedAndWatch.vue';
 import PageParams from './components/PageParams.vue';
 import { type Cars } from "@/types";
 import { ref,reactive } from 'vue';
-
-
+import HooksPage from './components/HooksPage.vue';
 let isShow = ref(true);
 
 let carList = 
@@ -23,7 +22,7 @@ console.log('carlist',carList);
           <!-- <Person></Person> -->
   <ComputedAndWatch ></ComputedAndWatch>
   <PageParams :list="carList" v-if="isShow"></PageParams>
-
+<HooksPage></HooksPage>
   <!-- <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
