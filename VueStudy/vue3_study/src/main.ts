@@ -7,5 +7,11 @@
 
 import App from "./App.vue";
 import { createApp } from "vue"; 
+import router from '@/router/Router';
 
-createApp(App).mount("#app");
+//创建一个应用
+const app = createApp(App)
+//使用路由
+app.use(router)
+//挂载到index.html的容器上，id：app
+app.mount("#app");
