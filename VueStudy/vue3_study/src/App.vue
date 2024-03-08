@@ -10,7 +10,8 @@ import type { RouterLink, RouterView } from 'vue-router';
     <router-link  to="/home" active-class="active">页面参数传递</router-link>
     <router-link  to="/computedAndWatch" active-class="active">计算属性和Watch监听的使用</router-link>
     <router-link  to="/hooks" active-class="active">hooks（用于封装）</router-link>
-    <router-link  to="/about" active-class="active">关于</router-link>
+  
+    <router-link  :to="{path:'/about'}" active-class="active">关于（to的第二种写法）</router-link>
   </div>
   
   <div class="content">
