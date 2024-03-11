@@ -4,6 +4,7 @@
 
 * [三方库平台](https://www.npmjs.com/)
 * [三方UI组建](https://element-plus.gitee.io/zh-CN/)
+* [三方状态管理库](https://pinia.vuejs.org/zh/)
 
 
 ### 自定义标签名（默认是文件名）：
