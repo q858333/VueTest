@@ -13,6 +13,10 @@ const router = createRouter({
     history:createWebHistory(),//路由器的工作模式
     routes:[
         {
+            path:'/',
+            redirect:'/home'
+        },
+        {
             name:"shouye",
             path:'/home',
             component:Home

@@ -1,4 +1,7 @@
 <template>
+     <button @click="routeJump">
+            路由跳转
+     </button>
     <div class="page">
         <ul>
             <li v-for="model in list" :id="model.id">
@@ -10,6 +13,7 @@
             </li>
         </ul>
 
+       
         <!-- <ul>
             <li v-for="model in list" :id="model.id">
                 params
@@ -31,7 +35,7 @@
 <script lang="ts" setup>
 
 import { reactive } from 'vue';
-
+import { useRouter } from 'vue-router';
 let list = reactive(
     [
     {id:"asdsa01",title:"游戏",content:"Dota2"},
@@ -39,6 +43,12 @@ let list = reactive(
     {id:"asdsa03",title:"旅游",content:"河南"}
     ]
 )
+
+let router = useRouter();
+
+function routeJump () {
+    router.push('/home');
+}
 </script>
 
 
