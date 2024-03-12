@@ -26,6 +26,10 @@ let countStore = useCountStore()
 //不能建议使用torefs，因为会吧store里的方法也变成ref类型，没有必要，我们只需要数据变成ref
 let {sum,name,age,bigSum} = storeToRefs(countStore);
 
+countStore.$subscribe((mutate,state)=>{
+    console.log('数据发生变化');
+});
+
 function addClick () {
     //第一种修改数据方式
     // countStore.sum += n;
