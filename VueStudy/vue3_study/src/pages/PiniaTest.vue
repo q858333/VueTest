@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <h2>求和为:{{countStore.sum}},姓名:{{countStore.name}},年龄：{{countStore.age}}</h2>
+        <h2>求和为:{{sum}},姓名:{{name}},年龄：{{age}}</h2>
 
         <select v-model.number="n">
             <option value="1">1</option>
@@ -17,11 +17,14 @@
 <script lang="ts" setup name="PiniaTest">
 
 import { reactive, toRefs } from 'vue';
-
+import { storeToRefs } from 'pinia';
 import { useCountStore } from '@/store/count';
 
 let n = 1;
 let countStore = useCountStore()
+
+//不能建议使用torefs，因为会吧store里的方法也变成ref类型，没有必要，我们只需要数据变成ref
+let {sum,name,age} = storeToRefs(countStore);
 
 function addClick () {
     //第一种修改数据方式
@@ -33,6 +36,8 @@ function addClick () {
     //     name:'里斯',
     //     age:100,
     // })
+
+    //第三种修改数据方式
     console.log('addClick',n);
     countStore.addNumber(n);
 }
