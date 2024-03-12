@@ -3,6 +3,7 @@ import HooksPage from "@/components/HooksPage.vue";
 import About from "@/pages/About.vue";
 import Home from "@/pages/Home.vue";
 import News from "@/pages/News.vue";
+import PiniaTest from "@/pages/PiniaTest.vue";
 import RouteInRoute from "@/pages/RouteInRoute.vue";
 import RouteInRoute_Detail from "@/pages/RouteInRoute_Detail.vue";
 //1:引入 createRouter
@@ -14,7 +15,7 @@ const router = createRouter({
     routes:[
         {
             path:'/',
-            redirect:'/home'
+            redirect:'/home'//重定向
         },
         {
             name:"shouye",
@@ -37,6 +38,11 @@ const router = createRouter({
             path:'/hooks',
             component:HooksPage
         },
+        {
+            path:'/pinia',
+            component:PiniaTest
+        },
+
         {
             path:'/routeInRoute',
             component:RouteInRoute,

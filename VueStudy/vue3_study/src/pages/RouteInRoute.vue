@@ -1,19 +1,20 @@
 <template>
-     <button @click="routeJump">
-            路由跳转
-     </button>
+    <button @click="routeJump">
+        路由跳转
+    </button>
     <div class="page">
         <ul>
             <li v-for="model in list" :id="model.id">
                 query
                 <router-link :to="{
-                    //  path:'/routeInRoute/detail',// 或name都可以
-                name:'xiangqing',
-                query:{content:model.content}}" :id="model.id">{{model.title}}</router-link>
+        //  path:'/routeInRoute/detail',// 或name都可以
+        name: 'xiangqing',
+        query: { content: model.content }
+    }" :id="model.id">{{ model.title }}</router-link>
             </li>
         </ul>
 
-       
+
         <!-- <ul>
             <li v-for="model in list" :id="model.id">
                 params
@@ -38,15 +39,15 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 let list = reactive(
     [
-    {id:"asdsa01",title:"游戏",content:"Dota2"},
-    {id:"asdsa02",title:"美食",content:"烩面"},
-    {id:"asdsa03",title:"旅游",content:"河南"}
+        { id: "asdsa01", title: "游戏", content: "Dota2" },
+        { id: "asdsa02", title: "美食", content: "烩面" },
+        { id: "asdsa03", title: "旅游", content: "河南" }
     ]
 )
 
 let router = useRouter();
 
-function routeJump () {
+function routeJump() {
     router.push('/home');
 }
 </script>
@@ -54,21 +55,23 @@ function routeJump () {
 
 
 <style scoped>
- .page {
+.page {
     height: 100%;
     background-color: aquamarine;
     display: flex;
     justify-content: space-between;
 }
-  ul li::marker{
+
+ul li::marker {
     color: red;
-  }
-  .content {
+}
+
+.content {
     width: 70%;
     height: 80%;
     background-color: white;
     border: 1px solid;
     padding: 10px;
     border-radius: 10px;
-  }
+}
 </style>
