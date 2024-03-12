@@ -14,5 +14,11 @@ export const useCountStore = defineStore('count',{
             name:'章三',
             age:10,
         }
+    },
+    getters:{
+
+        bigSum(state):number{
+            return this.sum*10;
+        }
     }
 })

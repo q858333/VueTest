@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <h2>求和为:{{sum}},姓名:{{name}},年龄：{{age}}</h2>
+        <h2>求和为:{{sum}},bigSum:{{bigSum}},姓名:{{name}},年龄：{{age}}</h2>
 
         <select v-model.number="n">
             <option value="1">1</option>
@@ -24,7 +24,7 @@ let n = 1;
 let countStore = useCountStore()
 
 //不能建议使用torefs，因为会吧store里的方法也变成ref类型，没有必要，我们只需要数据变成ref
-let {sum,name,age} = storeToRefs(countStore);
+let {sum,name,age,bigSum} = storeToRefs(countStore);
 
 function addClick () {
     //第一种修改数据方式
