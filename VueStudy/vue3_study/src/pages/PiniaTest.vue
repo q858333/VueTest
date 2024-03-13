@@ -1,22 +1,13 @@
 <template>
     <div class="page">
-        <h2>求和为:{{sum}},bigSum:{{bigSum}},姓名:{{name}},年龄：{{age}}</h2>
-
-        <select v-model.number="n">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-
-        <button @click="addClick">加</button>
-        <button @click="reduceClick">减</button>
-
+       <PiniaSum/>
+        <h2>求和为:{{sum}}</h2>
     </div>
 </template>
 
 <script lang="ts" setup name="PiniaTest">
 
-import { reactive, toRefs } from 'vue';
+import PiniaSum from '@/components/PiniaSum.vue';
 import { storeToRefs } from 'pinia';
 import { useCountStore } from '@/store/count';
 
@@ -25,31 +16,6 @@ let countStore = useCountStore()
 
 //不能建议使用torefs，因为会吧store里的方法也变成ref类型，没有必要，我们只需要数据变成ref
 let {sum,name,age,bigSum} = storeToRefs(countStore);
-
-countStore.$subscribe((mutate,state)=>{
-    console.log('数据发生变化');
-});
-
-function addClick () {
-    //第一种修改数据方式
-    // countStore.sum += n;
-
-    //第二种修改数据方式
-    // countStore.$patch({
-    //     sum:88,
-    //     name:'里斯',
-    //     age:100,
-    // })
-
-    //第三种修改数据方式
-    console.log('addClick',n);
-    countStore.addNumber(n);
-}
-
-function reduceClick () {
-    countStore.sum -= n;
-}
-
 
 </script>
 
@@ -60,8 +26,5 @@ function reduceClick () {
     padding: 10px;
 }
 
-select,button {
-    margin: 0px 5px;
-    height: 25px;
-}
+
 </style>

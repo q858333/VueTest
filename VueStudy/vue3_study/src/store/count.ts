@@ -29,9 +29,9 @@ import { computed, ref } from "vue";
 /// 组合式写法
 export const useCountStore = defineStore('count',()=>{
 
-    let sum = ref(0)
-    let name = '章三'
-    let age = 10
+    let sum = ref(0);
+    let name = ref('章三');
+    let age = ref(10);
 
     function addNumber(value: number) {
         console.log('addNumber');
