@@ -9,8 +9,10 @@
                 <router-link :to="{
         //  path:'/routeInRoute/detail',// 或name都可以
         name: 'xiangqing',
-        query: { content: model.content }
-    }" :id="model.id">{{ model.title }}</router-link>
+        // params:{content:model.content,id:model.id},
+        query: { content: model.content,id:model.id }
+        } " >{{ model.title }}
+        </router-link>
             </li>
         </ul>
 
@@ -39,9 +41,9 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 let list = reactive(
     [
-        { id: "asdsa01", title: "游戏", content: "Dota2" },
-        { id: "asdsa02", title: "美食", content: "烩面" },
-        { id: "asdsa03", title: "旅游", content: "河南" }
+        { id: "asdsa01", title: "游戏", content: "斗地主" },
+        { id: "asdsa02", title: "食物", content: "鸡蛋" },
+        { id: "asdsa03", title: "旅游", content: "中国" }
     ]
 )
 
@@ -49,6 +51,8 @@ let router = useRouter();
 
 function routeJump() {
     router.push('/home');
+    // router.push({name:'shouye'});
+
 }
 </script>
 

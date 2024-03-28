@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        query参数:{{query.content}}
+        参数:id:{{id}} content:{{content}}
     </div>
 </template>
 
@@ -9,9 +9,10 @@
 import { reactive, toRefs } from 'vue';
 import { useRoute } from 'vue-router';
 
-let route = useRoute();
-let {query} = toRefs(route);
-let {params} = toRefs(route);
+// let route = useRoute();
+// let {query} = toRefs(route);
+// let {params} = toRefs(route);
+defineProps(['content','id']);
 
 </script>
 

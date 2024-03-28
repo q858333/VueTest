@@ -7,7 +7,7 @@ import PiniaTest from "@/pages/PiniaTest.vue";
 import RouteInRoute from "@/pages/RouteInRoute.vue";
 import RouteInRoute_Detail from "@/pages/RouteInRoute_Detail.vue";
 //1:引入 createRouter
-import { createRouter, createWebHistory} from "vue-router";
+import { createRouter, createWebHistory,createWebHashHistory} from "vue-router";
 
 //2:创建路由
 const router = createRouter({
@@ -48,24 +48,24 @@ const router = createRouter({
             component:RouteInRoute,
             children:[
                 {
+                      ////params方式传参
+                
+                    // name:'xiangqing',
+                    // path:'detail/:id/:content',
+                    // component:RouteInRoute_Detail,
+            
                     name:'xiangqing',
                     path:'detail',
                     component:RouteInRoute_Detail,
 
-                    
                     //props方式传参 一
-                    // props(route){
-                    //     return route.query; 
-                    // }
+                    props(route){
+                        return route.query; 
+                    }
                     //props方式传参 二，配合params使用                  
                     // props:true
                 },
-                ////params方式传参
-                // {
-                //     name:'xiangqing',
-                //     path:'detail/:id/:conent',
-                //     component:RouteInRoute_Detail
-                // }
+              
 
             ]
         }

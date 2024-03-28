@@ -4,7 +4,7 @@
         <h1>组建参数传递</h1>
         <ul>
             <li v-for="(p,index) in list"  :key="p.id">
-            <h3>{{index}},汽车：{{p.name}} ,价格:{{p.price}}</h3>
+               <h3>{{index}},汽车：{{p.name}} ,价格:{{p.price}}</h3>
             </li>
         </ul>
         <button @click="updateData"> 更新数据:{{sum}}}</button>
@@ -47,6 +47,7 @@ onUnmounted(() => {
 let sum = ref(0);
 function updateData () {
     sum.value+=1;
+    myEmits("callBack",1);
 }
 
 
@@ -55,20 +56,22 @@ function updateData () {
 //  console.log('页面参数',x.list);
 
 // 2:接收+限制类型
-// let x = defineProps<{list:Cars}>();
+let myProps = defineProps<{list:Cars}>();
+console.log('页面参数',myProps.list);
 
 // 3:接收+限制类型+限制必要性+指定默认值
-let x = withDefaults(defineProps<{list?:Cars}>(),{
-    list:()=>{
-        return [{id:'123',name:'我的车',price:0}];
-    }
-});
- console.log('页面参数',x.list);
+// let x = withDefaults(defineProps<{list?:Cars}>(),{
+//     list:()=>{
+//         return [{id:'123',name:'汽车',price:0}];
+//     },
+// });
+let myEmits = defineEmits(['callBack']);
+
 
  //页面元素可以看到a,b
  let a = 1;
-let b = 2;
-defineExpose({a,b});
+ let b = 2;
+ defineExpose({a,b});
 
 </script>
 

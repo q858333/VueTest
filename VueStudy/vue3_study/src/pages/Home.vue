@@ -1,7 +1,8 @@
 <template>
     <div class=".page">
-    <h1>这是首页</h1>
-    <PageParams :list="carList" v-if="isShow"></PageParams>
+    <h1>组建参数和生命周期</h1>
+    <PageParams :list="carList" @callBack="homeCallBack" v-if="isShow"></PageParams>
+    
     </div>
 </template>
 
@@ -18,6 +19,10 @@ reactive<Cars>([
   {id:'dasda3',name:'大众',price:10},
 ])
 console.log('carlist',carList);
+
+function homeCallBack (x:number) {
+    console.log('callB111ack ',x);
+}
 </script>
 
 <style scoped>
