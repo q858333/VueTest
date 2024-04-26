@@ -18,7 +18,7 @@ import { type Cars } from '@/types';
 
 import {ref,onBeforeMount ,onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted } from 'vue';
 
-console.log('Page 创建');
+console.log('PageParams 创建');
 /// 生命周期
 
 onBeforeMount(()=>{

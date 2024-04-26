@@ -5,7 +5,7 @@
     <div class="page">
         <ul>
             <li v-for="model in list" :id="model.id">
-                query
+                标题：
                 <router-link :to="{
         //  path:'/routeInRoute/detail',// 或name都可以
         name: 'xiangqing',

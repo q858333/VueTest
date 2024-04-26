@@ -6,9 +6,9 @@
         <button class="button1" @click="changeName">修改名字</button>
         <button class="button1" @click="changeAge">修改年龄</button>
         <hr>
-        <h2>一辆{{car.name}},价值{{car.price}}万 </h2>
-        <h2>Copys 一辆{{carCopys.name}},价值{{carCopys.price}}万 ,{{carPriceCopy}}</h2>
-        <button @click="changePrice">修改价格</button>
+        <!-- <h2>一辆{{car.name}},价值{{car.price}}万 </h2> -->
+        <!-- <h2>Copys 一辆{{carCopys.name}},价值{{carCopys.price}}万 ,{{carPriceCopy}}</h2> -->
+        <!-- <button @click="changePrice">修改价格</button> -->
 
         <h2>一辆{{car.name}},价值{{car.price}}万 </h2>
         <button @click="changeReactive">reactive修改对象</button>
@@ -16,11 +16,11 @@
         <h2>一辆{{refcar.name}},价值{{refcar.price}}万 </h2>
         <button @click="changeRef">ref修改对象</button>
         <hr>
-        <h2>游戏列表</h2>
+        <!-- <h2>游戏列表</h2>
         <ul>
             <li v-for="g in games"  :key="g.id">{{g.name}}</li>
         </ul>
-        <button @click="changeFirstGame">修改第一个游戏名称</button>
+        <button @click="changeFirstGame">修改第一个游戏名称</button> -->
 
 
     </div>
@@ -30,8 +30,7 @@
 //ref创建-可以定义基本类型和对象类型的响应式数据，定义对象类型时底层使用的reactive
 //reactive创建-只能定义对象类型的响应式数据
 /// > 1. 若需要一个基本类型的响应式数据，必须使用`ref`。
-///> 2. 若需要一个响应式对象，层级不深，`ref`、`reactive`都可以。
-///> 3. 若需要一个响应式对象，且层级较深，推荐使用`reactive`。
+///> 2. 若需要一个响应式对象，`ref`、`reactive`都可以。
 
 import {ref,reactive,toRefs,toRef} from 'vue' 
 let name = ref('章三');
@@ -40,24 +39,9 @@ let tel = '123123123123122312';
 
 let car = reactive({name:'奔驰',price:100});
 
-let carCopys = toRefs(car);
-
-let carPriceCopy = toRef(car,"price");
-
-
 let refcar = ref({name:'奔驰',price:100});
 
-let games = ref(
-    [
-        {id:'1',name:'天下'},
-        {id:'2',name:'王者'},
-        {id:'3',name:'Dota2'},
-    ]
-);
 
-function changeFirstGame () {
-    games.value[0].name = "天下手游"
-}
 function changePrice () {
     car.price+=10;
 }
@@ -69,7 +53,9 @@ function telClick() {
 function changeReactive () {
     /// car = {name:'宝马',price:22}这么写不更新
     /// car = reactive({name:'宝马',price:22})这么写不更新
-    Object.assign(car,{name:'宝马',price:22});
+    // Object.assign(car,{name:'宝马',price:22});
+
+    car.name = '宝马';
 }
 
 function changeRef () {
@@ -82,6 +68,22 @@ function changeName() {
 function changeAge() {
     age.value++;
 }
+
+
+// let carCopys = toRefs(car);
+
+// let carPriceCopy = toRef(car,"price");
+// let games = ref(
+//     [
+//         {id:'1',name:'天下'},
+//         {id:'2',name:'王者'},
+//         {id:'3',name:'Dota2'},
+//     ]
+// );
+
+// function changeFirstGame () {
+//     games.value[0].name = "天下手游"
+// }
 
 
 </script>

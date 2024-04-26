@@ -15,7 +15,7 @@ const router = createRouter({
     routes:[
         {
             path:'/',
-            redirect:'/home'//重定向
+            redirect:'/news'//重定向
         },
         {
             name:"shouye",
